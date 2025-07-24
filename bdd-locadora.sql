@@ -1,0 +1,36 @@
+ CREATE DATABASE locadora; 
+ 
+ USE locadora;
+ 
+ CREATE TABLE cliente(
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(150) NOT NULL,
+ cpf VARCHAR(20) NOT NULL,
+ rg VARCHAR(20) NOT NULL,
+ rne VARCHAR(20) NULL  
+ );     
+ ALTER TABLE cliente ADD cnh VARCHAR(20) NOT NULL;
+ SHOW COLUMNS FROM cliente;
+ 
+ CREATE TABLE veiculo(
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ marca VARCHAR(90) NOT NULL,
+ placa VARCHAR(9) NOT NULL,      
+ modelo VARCHAR(90) NOT NULL  ,
+ ano INT NOT NULL  
+ 
+ );   
+ ALTER TABLE veiculo ADD combustivel VARCHAR(10) NOT NULL;
+ SHOW COLUMNS FROM veiculo;
+ 
+ 
+ CREATE TABLE locacao( 
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ id_cliente INT NOT NULL,
+ id_veiculo INT NOT NULL,
+ ano INT NOT NULL,
+ marca VARCHAR(90) NOT NULL,
+ modelo VARCHAR(90) NOT NULL 
+ );
+ 
+ 
