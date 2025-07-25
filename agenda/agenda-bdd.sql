@@ -1,0 +1,43 @@
+CREATE DATABASE agenda CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE agenda ;
+
+CREATE TABLE usuario(
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(150) NOT NULL,
+dataNascimento DATE NOT NULL,
+cpf VARCHAR(20) NOT NULL,
+rg VARCHAR(20) NULL,
+genero VARCHAR(20) NOT NULL    
+)ENGINE=InnoDB;
+
+CREATE TABLE endereco(
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_usuario INT NOT NULL, 
+logradouro VARCHAR(150) NOT NULL,
+numero VARCHAR(4) NOT NULL,
+bairro VARCHAR(100) NOT NULL,
+cidade VARCHAR(100) NOT NULL,
+estado  VARCHAR(100) NOT NULL,
+cep  VARCHAR(20) NOT NULL ,
+CONSTRAINT fk_endereco_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+)ENGINE=InnoDB;
+
+CREATE TABLE contato(
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_usuario INT NOT NULL,
+telefone VARCHAR(20) NOT NULL,
+celular VARCHAR(20) NOT NULL,
+email VARCHAR(60) NOT NULL UNIQUE,
+CONSTRAINT fk_contato_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id)  
+
+)ENGINE=InnoDB; 
+
+SHOW COLUMNS FROM contato;
+
+
+SHOW TABLES; 
+
+
+
+
