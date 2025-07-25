@@ -1,0 +1,39 @@
+-- Data definition Language - DDL
+-- Linguagem de definição de  
+--  CREATE - Cria a base de dados, tabelas
+-- Views, Procedures, Index
+-- DROP - Apaga base de dados, tabelas etc. 
+-- ALTER - Altera a estrutura do banco de dados
+-- RENAME - Renomeia base ded dados, tabelas etc          
+    
+    
+    CREATE DATABASE locadora CHARACTER SET utf8mb4;
+    
+    USE locadora;
+    
+    CREATE TABLE cliente(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomeCliente VARCHAR(150) NOT NULL          
+    ); 
+    
+    CREATE TABLE veiculo(
+    id INT ,
+    placa VARCHAR(9) NOT NULL,
+    ano INT NOT NULL,
+    marca VARCHAR(90) NOT NULL,
+    modelo VARCHAR(80) NOT NULL     
+    );                   
+    
+ALTER TABLE veiculo ADD PRIMARY KEY (id);
+ALTER TABLE veiculo MODIFY id INT AUTO_INCREMENT;
+ALTER TABLE cliente ADD cpf VARCHAR(20) NOT NULL;
+ALTER TABLE cliente ADD rg VARCHAR(20) NOT NULL AFTER nomeCliente;
+ALTER TABLE cliente ADD rne VARCHAR(20) NULL AFTER rg;
+
+
+SHOW COLUMNS FROM veiculo;   
+SELECT * FROM cliente; 
+     
+-- DROP DATABASE locadora;
+     
+    
